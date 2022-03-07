@@ -3,16 +3,16 @@ package ru.job4j.dream.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Post {
+public class Candidate {
     private int id;
     private String name;
-    private String description;
+    private String desc;
     private LocalDate created;
 
-    public Post(int id, String name, String description, LocalDate created) {
+    public Candidate(int id, String name, String desc, LocalDate created) {
         this.id = id;
         this.name = name;
-        this.description = description;
+        this.desc = desc;
         this.created = created;
     }
 
@@ -32,12 +32,12 @@ public class Post {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public LocalDate getCreated() {
@@ -54,12 +54,12 @@ public class Post {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Post post = (Post) o;
-        return id == post.id && Objects.equals(name, post.name) && Objects.equals(description, post.description) && Objects.equals(created, post.created);
+        Candidate candidate = (Candidate) o;
+        return id == candidate.id && Objects.equals(name, candidate.name) && Objects.equals(desc, candidate.desc) && Objects.equals(created, candidate.created);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, created);
+        return Objects.hash(id, name, desc, created);
     }
 }
