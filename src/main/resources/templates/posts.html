@@ -28,9 +28,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="post: ${posts}">
-                <td th:text="${post.id}"/>
-                <td th:text="${post.name}"/>
+            <tr th:each="post:${posts}">
+                <td th:utext="${post.id}"/>
+                <td th:utext="${post.name}"/>
             </tr>
             </tbody>
         </table>
