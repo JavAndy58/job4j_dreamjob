@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PostStore {
 
     private static final PostStore INST = new PostStore();
-    private final Map<Integer, Post> posts = new ConcurrentHashMap<>();
+    private Map<Integer, Post> posts = new ConcurrentHashMap<>();
 
     private PostStore() {
         posts.put(1, new Post(1, "Junior Java Job", "Job", LocalDate.now()));
@@ -26,4 +26,7 @@ public class PostStore {
         return posts.values();
     }
 
+    public void postsAdd(Post post) {
+        posts.put(posts.size() + 1, new Post(posts.size() + 1, post.getName(), post.getDescription(), LocalDate.now()));
+    }
 }
