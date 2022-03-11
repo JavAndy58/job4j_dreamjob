@@ -4,6 +4,7 @@ import ru.job4j.dream.model.Post;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -28,5 +29,16 @@ public class PostStore {
 
     public void postsAdd(Post post) {
         posts.put(posts.size() + 1, new Post(posts.size() + 1, post.getName(), post.getDescription(), LocalDate.now()));
+    }
+
+    public Post findById(int id) {
+        Post returnPost = null;
+        Collection<Post> postList = findAll();
+        for (Post post : postList) {
+            if(post.getId() == id) {
+                returnPost = post;
+            }
+        }
+        return returnPost;
     }
 }

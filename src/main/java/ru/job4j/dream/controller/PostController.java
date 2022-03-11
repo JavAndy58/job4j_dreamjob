@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.job4j.dream.model.Post;
 import ru.job4j.dream.store.PostStore;
@@ -35,5 +36,11 @@ public class PostController {
     public String savePost(@ModelAttribute Post post) {
         postStore.postsAdd(post);
         return "redirect:/posts";
+    }
+
+    @GetMapping("/formUpdatePost/{postId}")
+    public String formUpdatePost(Model model, @PathVariable("postId") int id) {
+        model.addAttribute("post", postStore.findById(id));
+        return "updatePost";
     }
 }
