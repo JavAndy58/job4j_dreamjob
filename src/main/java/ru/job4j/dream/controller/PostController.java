@@ -32,9 +32,15 @@ public class PostController {
         return "addPost";
     }
 
-    @PostMapping("/savePost")
-    public String savePost(@ModelAttribute Post post) {
-        postStore.postsAdd(post);
+    @PostMapping("/updatePost")
+    public String updatePost(@ModelAttribute Post post) {
+        postStore.update(post);
+        return "redirect:/posts";
+}
+
+    @PostMapping("/createPost")
+    public String createPost(@ModelAttribute Post post) {
+        postStore.create(post);
         return "redirect:/posts";
     }
 
