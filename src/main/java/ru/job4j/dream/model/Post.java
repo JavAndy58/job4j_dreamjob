@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Post {
+
     private int id;
     private String name;
     private String description;
