@@ -1,4 +1,4 @@
-package ru.job4j.dream.controller;
+package ru.job4j.dream.control;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.job4j.dream.model.Post;
-import ru.job4j.dream.store.PostStore;
+import ru.job4j.dream.persistence.PostStore;
 import java.time.LocalDate;
 
 @Controller
