@@ -1,24 +1,20 @@
-package ru.job4j.dream.service;
+package ru.job4j.dream.persistence;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import ru.job4j.dream.model.City;
-import ru.job4j.dream.persistence.CityStore;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
-@Service
-public class CityService {
+@Repository
+public class CityStore {
 
-    private final CityStore storeCity;
+    private AtomicInteger ids = new AtomicInteger(3);
+    private Map<Integer, City> cities = new ConcurrentHashMap<>();
 
-    public CityService(CityStore storeCity) {
-        this.storeCity = storeCity;
-    }
-
-    public CityService() {
+    private CityStore() {
         cities.put(1, new City(1, "Москва"));
         cities.put(2, new City(2, "СПб"));
         cities.put(3, new City(3, "Екб"));
