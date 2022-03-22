@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import ru.job4j.dream.model.Candidate;
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -12,7 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CandidateStore {
 
     private AtomicInteger ids = new AtomicInteger(2);
-    private Map<Integer, Candidate> candidates = new ConcurrentHashMap<>();
+//    private Map<Integer, Candidate> candidates = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Integer, Candidate> candidates = new ConcurrentHashMap<>();
 
     private CandidateStore() {
         candidates.put(1, new Candidate(1, "Junior Java", "good", LocalDate.now()));
