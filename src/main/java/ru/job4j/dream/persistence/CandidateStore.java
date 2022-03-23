@@ -15,8 +15,8 @@ public class CandidateStore {
     private Map<Integer, Candidate> candidates = new ConcurrentHashMap<>();
 
     private CandidateStore() {
-        candidates.put(1, new Candidate(1, "Junior Java", "good", LocalDate.now()));
-        candidates.put(2, new Candidate(2, "Middle Java", "good", LocalDate.now()));
+        candidates.put(1, new Candidate(1, "Junior Java", "good", LocalDate.now(), null));
+        candidates.put(2, new Candidate(2, "Middle Java", "good", LocalDate.now(), null));
     }
 
     public Collection<Candidate> findAll() {
@@ -29,7 +29,8 @@ public class CandidateStore {
     }
 
     public void update(Candidate candidate) {
-        candidates.put(candidate.getId(), new Candidate(candidate.getId(), candidate.getName(), candidate.getDesc(), LocalDate.now()));
+        candidates.put(candidate.getId(), new Candidate(candidate.getId(),
+                candidate.getName(), candidate.getDesc(), LocalDate.now(), null));
     }
 
     public Candidate findById(int id) {
