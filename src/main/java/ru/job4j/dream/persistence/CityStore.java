@@ -24,6 +24,15 @@ public class CityStore {
         return new ArrayList<>(cities.values());
     }
 
+    public void create(City city) {
+        city.setId(ids.incrementAndGet());
+        cities.put(city.getId(), city);
+    }
+
+    public void update(City city) {
+        cities.put(city.getId(), new City(city.getId(), city.getName()));
+    }
+
     public City findById(int id) {
         return cities.get(id);
     }

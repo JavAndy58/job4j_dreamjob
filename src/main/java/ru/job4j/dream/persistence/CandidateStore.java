@@ -33,13 +33,6 @@ public class CandidateStore {
     }
 
     public Candidate findById(int id) {
-        Candidate returnCandidate = null;
-        Collection<Candidate> candidatesList = findAll();
-        for (Candidate candidate : candidatesList) {
-            if (candidate.getId() == id) {
-                returnCandidate = candidate;
-            }
-        }
-        return returnCandidate;
+        return candidates.get(id);
     }
 }

@@ -35,13 +35,6 @@ public class PostStore {
     }
 
     public Post findById(int id) {
-        Post returnPost = null;
-        Collection<Post> postList = findAll();
-        for (Post post : postList) {
-            if (post.getId() == id) {
-                returnPost = post;
-            }
-        }
-        return returnPost;
+        return posts.get(id);
     }
 }
