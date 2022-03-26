@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.service.CandidateService;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -54,6 +53,15 @@ public class CandidateController {
     public String formUpdateCandidate(Model model, @PathVariable("candidateId") int id) {
         model.addAttribute("candidate", candidateService.findById(id));
         return "updateCandidate";
+    }
+    @GetMapping("/photoCandidate/{candidateId}")
+    public ResponseEntity<ByteArrayResource> download(@PathVariable("candidateId") Integer candidateId) {
+        Candidate candidate = candidateService.findById(candidateId);
+        return ResponseEntity.ok()
+                .headers(new HttpHeaders())
+                .contentLength(candidate.getPhoto().length)
+                .contentType(MediaType.parseMediaType("application/octet-stream"))
+                .body(new ByteArrayResource(candidate.getPhoto()));
     }
 
 }
