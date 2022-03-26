@@ -56,14 +56,4 @@ public class CandidateController {
         return "updateCandidate";
     }
 
-    @GetMapping("/photoCandidate/{candidateId}")
-    public ResponseEntity<Resource> download(@PathVariable("candidateId") Integer candidateId) {
-        Candidate candidate = candidateService.findById(candidateId);
-        return ResponseEntity.ok()
-                .headers(new HttpHeaders())
-                .contentLength(candidate.getPhoto().length)
-                .contentType(MediaType.parseMediaType("application/octet-stream"))
-                .body(new ByteArrayResource(candidate.getPhoto()));
-    }
-
 }
