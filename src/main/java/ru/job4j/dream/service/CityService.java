@@ -2,7 +2,7 @@ package ru.job4j.dream.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.dream.model.City;
-import ru.job4j.dream.persistence.CityStore;
+import ru.job4j.dream.store.CityStore;
 import java.util.List;
 
 @Service

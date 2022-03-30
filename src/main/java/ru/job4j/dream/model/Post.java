@@ -19,6 +19,7 @@ public class Post implements Serializable {
         this.city = city;
     }
 
+
     public int getId() {
         return id;
     }
